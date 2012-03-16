@@ -1,0 +1,37 @@
+[General]
+network = QueueNet
+#sim-time-limit = 60h
+cpu-time-limit =30s
+#debug-on-errors = true
+#record-eventlog = true
+output-scalar-file = ${resultdir}/${configname}-${runnumber}-${iterationvars}.sca
+
+
+[Config m_m_1]
+description = "m/m/1 queue"
+**.generator.inter_arrival_time = exponential(1/${1..10 step 1})
+**.queue.inter_arrival_time = exponential(0.1)
+
+
+[Config m_m_1_c]
+description = "m/m/1/c queue"
+**.queue.queue_length = ${1,2,4,8,16}
+**.generator.inter_arrival_time = exponential(1/${1..20 step 1})
+**.queue.inter_arrival_time = exponential(0.1)
+
+
+[Config m_d_1]
+description = "m/d/1 queue"
+**.generator.inter_arrival_time = exponential(1/${1..10 step 1})
+**.queue.inter_arrival_time = 0.1
+
+[Config d_m_1]
+description = "d/m/1 queue"
+**.generator.inter_arrival_time = 1/${1..10 step 1}
+**.queue.inter_arrival_time = exponential(0.1)
+
+
+[Config d_d_1]
+description = "d/d/1 queue"
+**.generator.inter_arrival_time = 1/${1..10 step 1}
+**.queue.inter_arrival_time = 0.1

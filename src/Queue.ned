@@ -1,0 +1,25 @@
+//
+// This file is part of an OMNeT++/OMNEST simulation example.
+//
+// Copyright (C) 1992-2008 Andras Varga
+//
+// This file is distributed WITHOUT ANY WARRANTY. See the file
+// `license' for details on this and other legal matters.
+//
+
+
+//
+// Single-server queue, service rate independent of message length
+//
+simple Queue
+{
+    parameters:
+        volatile double inter_arrival_time;
+        int queue_length;
+        //volatile double serviceTime @unit(s);
+        @display("i=block/queue;q=queue");
+
+    gates:
+        input in;
+        output out;
+}

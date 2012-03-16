@@ -1,0 +1,3 @@
+# Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "QueueNet" "QueueNet" "2" "565x412+135+135:normal"
+
